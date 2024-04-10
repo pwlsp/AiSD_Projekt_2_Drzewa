@@ -3,10 +3,10 @@
 #include <string>
 #include <iomanip>
 
-std::string print_tree(){
+std::string delete_tree(){
 
     std::cout << "ok\n";
     std::stringstream resultStream;
-    resultStream << "The tree has been printed\n";
+    resultStream << "The tree has been deleted.\n";
     return resultStream.str();
 }
