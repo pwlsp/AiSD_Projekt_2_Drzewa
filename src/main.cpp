@@ -10,7 +10,7 @@
 
 int main() {
 
-    std::string message = "Help\tShow this message\nPrint\tPrint the tree usin In-order, Pre-order, Post-order\nRemove\tRemove elements of the tree\nDelete\tDelete whole tree\nExport\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\tExits the program (same as ctrl+D)\n";
+    std::string message = "Help\tShow this message\nPrint\tPrint the tree usin In-order, Pre-order, Post-order\nMinMax\tShow min and max element\nRemove\tRemove elements of the tree\nDelete\tDelete whole tree\nExport\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\tExits the program (same as ctrl+D)\n";
 
     std::string action;
     std::cout << "action>";
@@ -19,18 +19,22 @@ int main() {
         std::cout << message;
     }
     else if(action == "Print"){
-        print_tree();
+        std::cout << print_tree();
+    }
+    else if(action == "MinMax"){
+        std::cout << min_max();
     }
     else if(action == "Remove"){
-        remove_element();
+        std::cout << remove_element();
     }
     else if(action == "Delete"){
-        delete_tree();
+        std::cout << delete_tree();
     }
     else if(action == "Rebalance"){
-        rebalance_tree();
+        std::cout << rebalance_tree();
     }
     else if(action == "Exit"){
         return 0;
     }
+    else std::cout << "Wrong command\n";
 }
