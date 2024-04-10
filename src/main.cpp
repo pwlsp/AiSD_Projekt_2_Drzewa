@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 
-//#include "avl.h"
-//#include "bst.h"
-//#include "print_tree.h"
-//#include "remove_element.h"
-//#include "delete_tree.h"
-//#include "rebalance.h"
+#include "avl.h"
+#include "bst.h"
+#include "print_tree.h"
+#include "remove_element.h"
+#include "delete_tree.h"
+#include "rebalance.h"
 
 int main() {
 
@@ -19,7 +19,7 @@ int main() {
         std::cout << message;
     }
     else if(action == "Print"){
-        printing();
+        print_tree();
     }
     else if(action == "Remove"){
         remove_element();
