@@ -15,7 +15,7 @@ int main() {
     std::string action;
     std::cout << "action> ";
     std::cin >> action;
-    while(action != "Exit"){
+    while(std::cin){
     if(action == "Help"){
         std::cout << message;
     }
@@ -34,9 +34,13 @@ int main() {
     else if(action == "Rebalance"){
         std::cout << rebalance_tree();
     }
+    else if(action == "Exit"){
+        return 0;
+    }
     else std::cout << "Wrong command\n";
     std::cout << "action> ";
     std::cin >> action;
     }
+    std::cout << "\n";
     return 0;
 }
