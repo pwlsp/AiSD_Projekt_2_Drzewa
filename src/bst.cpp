@@ -3,6 +3,8 @@
 #include <string>
 #include <iomanip>
 
+#include "struct_tree.h"
+
 std::string bst(){
 
     std::cout << "ok\n";

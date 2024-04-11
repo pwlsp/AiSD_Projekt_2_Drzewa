@@ -3,7 +3,9 @@
 #include <string>
 #include <iomanip>
 
-std::string print_tree(){
+#include "struct_tree.h"
+
+std::string print_tree(tree *root){
 
     std::cout << "ok\n";
     std::stringstream resultStream;

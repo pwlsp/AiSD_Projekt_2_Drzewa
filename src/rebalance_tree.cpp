@@ -3,7 +3,9 @@
 #include <string>
 #include <iomanip>
 
-std::string rebalance_tree(){
+#include "struct_tree.h"
+
+std::string rebalance_tree(tree *root){
 
     std::cout << "ok\n";
     std::stringstream resultStream;

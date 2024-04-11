@@ -3,7 +3,9 @@
 #include <string>
 #include <iomanip>
 
-std::string remove_element(){
+#include "struct_tree.h"
+
+std::string remove_element(tree *root){
 
     std::cout << "ok\n";
     std::stringstream resultStream;

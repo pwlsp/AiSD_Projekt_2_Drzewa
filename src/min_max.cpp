@@ -2,11 +2,16 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
 
-std::string min_max(){
+#include "struct_tree.h"
 
-    std::cout << "ok\n";
+
+std::string min_max(tree *root){
+    // int mini, maxi;
+    // std::cout << "Min: " << mini << "\n";
+    // std::cout << "Max: " << maxi << "\n";
     std::stringstream resultStream;
-    resultStream << "Min and max\n";
+    resultStream << "Min and max elements have been found\n";
     return resultStream.str();
 }

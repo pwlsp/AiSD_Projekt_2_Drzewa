@@ -1,3 +1,3 @@
+#include "struct_tree.h"
 
-
-std::string avl();
+std::string avl(tree *root);

@@ -3,8 +3,9 @@
 #include <string>
 #include <iomanip>
 
-std::string delete_tree(){
+#include "struct_tree.h"
 
+std::string delete_tree(tree *root){
     std::cout << "ok\n";
     std::stringstream resultStream;
     resultStream << "The tree has been deleted.\n";

@@ -1,3 +1,3 @@
+#include "struct_tree.h"
 
-
-std::string bst();
+std::string bst(tree *root);
