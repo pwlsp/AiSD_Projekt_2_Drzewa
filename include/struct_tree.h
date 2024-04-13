@@ -3,6 +3,7 @@
 
 struct tree{
     int value;
+    int bf; //wspl rownowagi
     tree * right;
     tree * left;
     tree * prev;
