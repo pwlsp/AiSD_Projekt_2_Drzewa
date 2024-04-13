@@ -2,13 +2,11 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <vector>
 
-#include "struct_tree.h"
+#include "../include/struct_tree.h"
 
-std::string avl(){
+void avl(tree *root, std::vector<int> data){
 
     std::cout << "ok\n";
-    std::stringstream resultStream;
-    resultStream << "AVL tree has been created.\n";
-    return resultStream.str();
 }

@@ -3,7 +3,7 @@
 #include <string>
 #include <iomanip>
 
-#include "struct_tree.h"
+#include "../include/struct_tree.h"
 
 std::string remove_element(tree *root){
 

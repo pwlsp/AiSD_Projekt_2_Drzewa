@@ -1,18 +1,16 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
-// #include "min_max.h"
-// #include "avl.h"
-// #include "bst.h"
-// #include "print_tree.h"
-// #include "remove_element.h"
-// #include "delete_tree.h"
-// #include "rebalance_tree.h"
-// #include "struct_tree.h"
+#include "../include/avl.h"
+#include "../include/bst.h"
+#include "../include/actions.h"
 
 int main(int argc, char *argv[]){
-    // tree * root;
-    int nodes, pom;
+    tree * root;
+    int nodes, p;
+    std::string pom;
+    std::vector <int> data;
     //dodawanie elementu
     // tree * node;
     // node = new tree;
@@ -21,42 +19,45 @@ int main(int argc, char *argv[]){
     // root->right = node;
     // node->prev=root;
 
-    std::string tree_type = argv[2];
+    if(argc <= 2){
+        std::cout << "No arguments given\n";
+        return 1;
+    }
+    if(std::string(argv[1]) != "--tree"){
+        std::cout << "Wrong arguments\n";
+        return 1;
+    }
+    std::string tree_type = std::string(argv[2]);
+    std::cin >> nodes;
+    for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);}
+    for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
+    std::cin.sync();
+            
+            
+    //         int j = 0;
+    //         pom = "";
+    //         while(data[j] != ' '){
+    //             pom += data[j];
+    //             j++;
+    //         }
+    //         nodes = std::stoi(pom);
+    //         pom = "";
+    //     for(int i = 0; i < nodes; i++){
+    //         while(data[j] != ' '){
+    //             pom += data[j];
+    //             j++;
+    //         }
+    //         data.push_back(std::stoi(pom));
+    //     }
+    // }
+    // else if(std::string(argv[3] == "<<"))
 
-    //if(tree_type == "AVL") avl(root);
-    // if(tree_type == "BST") bst(root);
+    
 
-    // std::string message = "Help\tShow this message\nPrint\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\tShow min and max element\nRemove\tRemove elements of the tree\nDelete\tDelete whole tree\nExport\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\tExits the program (same as ctrl+D)\n";
+    if(tree_type == "AVL") avl(root, data);
+    if(tree_type == "BST") bst(root, data);
 
-    // std::string action;
-    // std::cout << "action> ";
-    // std::cin >> action;
-    // while(std::cin){
-    // if(action == "Help"){
-    //     std::cout << message;
-    // }
-    // else if(action == "Print"){
-    //     std::cout << print_tree(root);
-    // }
-    // else if(action == "MinMax"){
-    //     std::cout << min_max(root);
-    // }
-    // else if(action == "Remove"){
-    //     std::cout << remove_element(root);
-    // }
-    // else if(action == "Delete"){
-    //     std::cout << delete_tree(root);
-    // }
-    // else if(action == "Rebalance"){
-    //     std::cout << rebalance_tree(root);
-    // }
-    //  else if(action == "Exit"){
-    //     return 0;
-    // }
-    // else std::cout << "Wrong command\n";
-    // std::cout << "action> ";
-    // std::cin >> action;
-    // }
-    std::cout << "\n";
-    return 0;
+    std::cout << actions(root);
+
+    return 0;  
 }

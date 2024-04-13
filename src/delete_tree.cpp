@@ -3,7 +3,7 @@
 #include <string>
 #include <iomanip>
 
-#include "struct_tree.h"
+#include "../include/struct_tree.h"
 
 std::string delete_tree(tree *root){
     std::cout << "ok\n";

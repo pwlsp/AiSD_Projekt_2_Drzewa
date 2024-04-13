@@ -4,8 +4,7 @@
 #include <iomanip>
 #include <algorithm>
 
-#include "struct_tree.h"
-
+#include "../include/struct_tree.h"
 
 std::string min_max(tree *root){
     // int mini, maxi;
