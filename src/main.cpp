@@ -31,28 +31,7 @@ int main(int argc, char *argv[]){
     std::cin >> nodes;
     for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);}
     for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
-    std::cin.sync();
-            
-            
-    //         int j = 0;
-    //         pom = "";
-    //         while(data[j] != ' '){
-    //             pom += data[j];
-    //             j++;
-    //         }
-    //         nodes = std::stoi(pom);
-    //         pom = "";
-    //     for(int i = 0; i < nodes; i++){
-    //         while(data[j] != ' '){
-    //             pom += data[j];
-    //             j++;
-    //         }
-    //         data.push_back(std::stoi(pom));
-    //     }
-    // }
-    // else if(std::string(argv[3] == "<<"))
-
-    
+    std::cin.sync();  
 
     if(tree_type == "AVL") avl(root, data);
     if(tree_type == "BST") bst(root, data);
