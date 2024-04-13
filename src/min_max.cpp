@@ -29,8 +29,8 @@ int max_element(tree *root){
 }
 
 std::string min_max(tree *root){
-    std::cout << "Min: " << min_element(rooti) << "\n";
-    std::cout << "Max: " << max_element(rooti) << "\n";
+    std::cout << "Min: " << min_element(root) << "\n";
+    std::cout << "Max: " << max_element(root) << "\n";
     std::stringstream resultStream;
     resultStream << "Min and max elements have been found\n";
     return resultStream.str();
