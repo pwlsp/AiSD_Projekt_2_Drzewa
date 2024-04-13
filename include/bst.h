@@ -1,3 +1,3 @@
 #include "struct_tree.h"
 
-std::string bst(tree *root);
+void bst(tree *root, std::vector<int> data);

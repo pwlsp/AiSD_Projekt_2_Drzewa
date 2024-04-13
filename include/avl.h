@@ -1,3 +1,3 @@
 #include "struct_tree.h"
 
-std::string avl(tree *root);
+void avl(tree *root, std::vector<int> data);
