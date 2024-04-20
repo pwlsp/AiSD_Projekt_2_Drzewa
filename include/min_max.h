@@ -1,3 +1,3 @@
 #include "struct_tree.h"
 
-std::string min_max(tree *root);
+void min_max(tree *&root);

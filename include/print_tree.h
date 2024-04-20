@@ -1,3 +1,3 @@
 #include "struct_tree.h"
 
-std::string print_tree(tree *root);
+void print_tree(tree *&root, std::string method);

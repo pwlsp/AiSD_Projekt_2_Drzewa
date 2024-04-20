@@ -1,3 +1,3 @@
 #include "struct_tree.h"
 
-std::string actions(tree *root);
+void actions(tree *&root, int nodes);
