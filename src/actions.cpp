@@ -14,6 +14,7 @@ std::string actions(tree *root){
     std::string message = "Help\tShow this message\nPrint\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\tShow min and max element\nRemove\tRemove elements of the tree\nDelete\tDelete whole tree\nExport\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\tExits the program (same as ctrl+D)\n";
     
     std::string action;
+    std::cin.sync();
     std::cin >> action;
     std::cout << "Weszlo";
     while(std::cin){
