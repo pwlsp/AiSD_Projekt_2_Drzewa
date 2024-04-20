@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+
 
 #include "../include/avl.h"
 #include "../include/bst.h"
@@ -8,8 +9,8 @@
 
 int main(int argc, char *argv[]){
     tree * root;
-    int nodes, p;
-    std::string pom;
+    root = new tree;
+    int nodes, p; std::string pom;
     std::vector <int> data;
     //dodawanie elementu
     // tree * node;
@@ -28,15 +29,18 @@ int main(int argc, char *argv[]){
         return 1;
     }
     std::string tree_type = std::string(argv[2]);
+
     std::cin >> nodes;
-    for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);}
-    for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
-    std::cin.sync();  
+    //for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);}
+    //for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
 
     if(tree_type == "AVL") avl(root, data);
     if(tree_type == "BST") bst(root, data);
+    
+    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    std::cout << actions(root);
-
+    actions(root);
+    root = NULL;
+    delete root;
     return 0;  
 }

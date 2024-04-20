@@ -6,7 +6,7 @@
 
 #include "../include/struct_tree.h"
 
-void bst(tree *root, std::vector<int> data){
+void bst(tree *root, std::vector <int> data){
 
-    std::cout << "ok\n";
+    std::cout << "bst\n";
 }
