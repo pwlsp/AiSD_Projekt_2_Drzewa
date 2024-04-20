@@ -5,7 +5,7 @@
 
 #include "../include/struct_tree.h"
 
-void remove_element(tree *root){
+void remove_element(tree *&root){
 
     std::cout << "ok\n";
 }

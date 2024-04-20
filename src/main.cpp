@@ -8,8 +8,9 @@
 #include "../include/actions.h"
 
 int main(int argc, char *argv[]){
+
     tree * root;
-    root = new tree;
+    //root = new tree;
     int nodes, p; std::string pom;
     std::vector <int> data;
     //dodawanie elementu
@@ -18,7 +19,6 @@ int main(int argc, char *argv[]){
     // node->left = NULL;
     // node->value = 2137;
     // root->right = node;
-    // node->prev=root;
 
     if(argc <= 2){
         std::cout << "No arguments given\n";
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]){
     
     //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    actions(root);
+    actions(root, nodes);
     root = NULL;
     delete root;
     return 0;  

@@ -6,7 +6,7 @@
 
 #include "../include/struct_tree.h"
 
-void avl(tree *root, std::vector <int> data){
+void avl(tree *&root, std::vector <int> data){
 
      std::cout << "avl\n";
 }

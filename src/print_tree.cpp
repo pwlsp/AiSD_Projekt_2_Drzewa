@@ -21,11 +21,25 @@ void post_order(tree *&root){
     std::cout << root->value << " ";
 }
 
-void print_tree(tree *root){ 
-    pre_order(root);
-    std::cout << "\n";
-    in_order(root);
-    std::cout << "\n";
-    post_order(root);
-    std::cout << "\n";
+void print_tree(tree *&root, std::string method){ 
+    if(method == "all"){
+        pre_order(root);
+        std::cout << "\n";
+        in_order(root);
+        std::cout << "\n";
+        post_order(root);
+        std::cout << "\n";
+    }
+    else if(method == "pre"){
+        pre_order(root);
+        std::cout << "\n";
+    }
+    else if(method == "in"){
+        in_order(root);
+        std::cout << "\n";
+    }
+    else if(method == "post"){
+        post_order(root);
+        std::cout << "\n";
+    }
 }
