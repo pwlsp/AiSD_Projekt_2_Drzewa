@@ -1,9 +1,6 @@
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <iomanip>
-#include <ios>
-#include <limits>
 
 #include "../include/min_max.h"
 #include "../include/print_tree.h"
@@ -13,13 +10,12 @@
 #include "../include/struct_tree.h"
 
 void actions(tree *&root, int nodes){
-    std::string message = "Help\tShow this message\nPrint\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\tShow min and max element\nRemove\tRemove elements of the tree\nDelete\tDelete whole tree\nExport\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\tExits the program (same as ctrl+D)\n";
-    
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "Actions\n";
+    std::string message = "Help\t\tShow this message\nPrint\t\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\t\tShow min and max element\nRemove\t\tRemove elements of the tree\nDelete\t\tDelete whole tree\nExport\t\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\t\tExits the program (same as ctrl+D)\n";
     std::string action;
-    std::cin >> action;
     while(std::cin){
-        std::cout << "Weszlo";
+        std::cin >> action;
+        std::cout << "action> " << action << "\n";
         if(action == "Help"){
            std::cout << message;
         }
@@ -38,8 +34,7 @@ void actions(tree *&root, int nodes){
         else if(action == "Rebalance"){
             rebalance_tree(root, nodes);
         }
+        else if(action == "Exit") break;
         else std::cout << "\nWrong command\n";
-        std::cout << "action> ";
-        std::cin >> action;
     }
 }

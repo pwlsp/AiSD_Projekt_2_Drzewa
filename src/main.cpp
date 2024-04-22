@@ -1,7 +1,10 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include <vector>
-
+#include <ios>
+#include <limits>
+#include <sstream>
 
 #include "../include/avl.h"
 #include "../include/bst.h"
@@ -29,16 +32,16 @@ int main(int argc, char *argv[]){
         return 1;
     }
     std::string tree_type = std::string(argv[2]);
-
     std::cin >> nodes;
-    //for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);}
-    //for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
+    std::cout << "nodes> " << nodes << "\n";
+    for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);} //przy herestring dac w " "
+    std::cout << "insert> ";
+    for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
+    std::cout << "\n";
 
     if(tree_type == "AVL") avl(root, data);
     if(tree_type == "BST") bst(root, data);
     
-    //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
     actions(root, nodes);
     root = NULL;
     delete root;
