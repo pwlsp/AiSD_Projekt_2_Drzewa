@@ -13,7 +13,7 @@
 int main(int argc, char *argv[]){
 
     tree * root;
-    //root = new tree;
+    root = new tree;
     int nodes, p; std::string pom;
     std::vector <int> data;
     //dodawanie elementu
