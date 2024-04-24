@@ -4,33 +4,23 @@
 #include <iomanip>
 
 #include "../include/struct_tree.h"
-
-void delete_tree2(tree *&root, tree *&copy)
-{
-    if (root)
-    {
-        delete_tree2(root->left, copy); // usuwamy lewe poddrzewo
-        // delete_tree(root->right); // usuwamy prawe poddrzewo
-        if (root != copy)
-        {
-            delete root;
-        } // usuwamy sam węzeł
-    }
-}
+#include "../include/print_tree.h"
 
 void delete_tree(tree *&root)
 {
-    tree *copy = new tree;
-    copy = root;
-    delete_tree2(root, copy);
+    if (root)
+    {
+        // print_tree(root,"pre");
+        // std::cout << std::endl <<"rut: " << root->value << std::endl;
+        if(root->left){
+            delete_tree(root->left);
+        }
+        if(root->right){
+            delete_tree(root->right);
+        }
+        // std::cout << std::endl <<"rut: " << root->value << std::endl;
+        // print_tree(root,"pre");
+        std::cout << "elo: " << root->value << std::endl;
+        delete root;
+    }
 }
-
-// void DFSRelease(AVLNode *v)
-// {
-//     if (v)
-//     {
-//         DFSRelease(v->left);  // usuwamy lewe poddrzewo
-//         DFSRelease(v->right); // usuwamy prawe poddrzewo
-//         delete v;             // usuwamy sam węzeł
-//     }
-// }
