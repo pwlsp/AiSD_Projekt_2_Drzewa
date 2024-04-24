@@ -17,7 +17,6 @@ void generate(int N){
 
 int main(){
     //od 2^11 = 2048 do 2^16 = 65536
-    std::cout << "ok";
-    for(int i = 2048; i <= 65536; i *= 4) generate(i);
+    for(int i = 2048; i <= 65536; i *= 2) generate(i);
     return 0;
 }
