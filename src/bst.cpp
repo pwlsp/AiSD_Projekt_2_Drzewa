@@ -7,7 +7,7 @@
 #include "../include/struct_tree.h"
 #include "../include/print_tree.h"
 
-void bst_create(tree *&root, std::vector<int> data)
+void bst(tree *&root, std::vector<int> data)
 {
     root->value = data[0];
     root->left = 0;
@@ -54,13 +54,4 @@ void bst_create(tree *&root, std::vector<int> data)
             }
         }
     }
-}
-
-int bst(tree *&root, std::vector<int> data)
-{
-    bst_create(root, data);
-
-    print_tree(root, "pre");
-
-    return 0;
 }
