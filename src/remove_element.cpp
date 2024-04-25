@@ -5,86 +5,95 @@
 
 #include "../include/struct_tree.h"
 
-void remove_zero(tree *&root, int element, tree *&prev)
-{
-    if(prev->left == root){
-        prev->left = NULL;
-    }
-    else if(prev->right == root){
-        prev->right = NULL;
+void leaf(tree *&parent, tree *&child){
+    if(child == parent->left){
+        child = NULL; delete child;
+        parent->left = NULL;
     }
     else{
-        std::cout << "Error in \"remove_zero()\" function.\n";
+        child = NULL; delete child;
+        parent->right = NULL;
     }
-
-    delete root;
-    std::cout << "Deleted node \"" << element << "\".\n";    
 }
 
-void remove_one(tree *&root, int element, tree *&prev)
-{
-    if(root->left != NULL){
-        if(prev->left == root){
-            prev->left = root->left;
-        }
-        else if(prev->right == root){
-            prev->right = root->left;
+void one_child(tree *&parent, tree *&child){
+    if(child == parent->left){
+        if(child->left != NULL){
+            parent->left = child->left;
+            child->left = NULL; delete child;
         }
         else{
-            std::cout << "Error in \"remove_zero()\" function.\n";
+            parent->left = child->right;
+            child->right = NULL; delete child;
         }
     }
-    else if(root->right != NULL){
-        if(prev->left == root){
-            prev->left = root->right;
-            std::cout << prev->left->value << std::endl;
-        }
-        else if(prev->right == root){
-            prev->right = root->right;
+    else{
+        if(child->left != NULL){
+            parent->right = child->left;
+            child->left = NULL; delete child;
         }
         else{
-            std::cout << "Error in \"remove_zero()\" function.\n";
+            parent->right = child->right;
+            child->right = NULL; delete child;
         }
+        
     }
-    root->left = NULL;
-    root->right = NULL;
-    root = NULL;
-    delete root;
-    std::cout << "Deleted node \"" << element << "\".\n";    
 }
 
-void remove_two(tree *&root, int element, tree *&prev)
-{
-}
+void two_children(tree *&child){ 
+    tree *replace = child->right; tree *P = child;
+    while(replace->left != NULL){
+        P = replace;
+        replace = replace->left;
+    }
+    child->value = replace->value;
+    if(replace->right == NULL){
+        leaf(P, replace);
+    }
+    else{
+        one_child(P, replace);
+    }
+    //std::cout << "replace: " << replace->value << std::endl;
+}  
 
-void remove_element(tree *&root, int element, tree *&prev)
+void remove_element(tree *&root, int element)
 {
-    std::cout << "root->value: " << root->value << " element: " << element << " prev->value: " << prev->value << "\n";
-    if (element < root->value)
-    {
-        remove_element(root->left, element, root);
+    if (element < root->value){ //czy idziemy w lewe poddrzewo
+        if(root->left != NULL && root->left->value != element) remove_element(root->left, element);
+        else if(root->left != NULL && root->left->value == element){//szukany element to lewe dziecko roota
+            tree *L = root->left;
+
+            //sprawdzanie ile to cos ma dzieci
+            if(L->left != NULL && L->right != NULL) two_children(L);
+            else if(L->left != NULL || L->right != NULL) one_child(root, L);
+            else leaf(root, L);
+        }
         return;
     }
-    else if (element > root->value)
-    {
-        remove_element(root->right, element, root);
+    else if (element > root->value){ //czy idziemy w prawe poddrzewo
+        if(root->right != NULL && root->right->value != element) remove_element(root->right, element);
+        else if(root->right != NULL && root->right->value == element){//szukany element to prawe dziecko roota
+            tree *R = root->right;
+            
+            //sprawdzanie ile to cos ma dzieci
+            if(R->left != NULL && R->right != NULL) two_children(R);
+            else if(R->left != NULL || R->right != NULL) one_child(root, R);
+            else leaf(root, R);
+        }
         return;
     }
-    else
-    {
-        if (root->left && root->right)
-        {
-            remove_two(root, element, prev);
+    else{
+        if(root->left != NULL && root->right != NULL){
+            two_children(root);
         }
-        else if (root->left || root->right)
-        {
-            remove_one(root, element, prev);
+        else if(root->left != NULL || root->right !=NULL){ //przesuwanie roota na dziecko
+            if(root->left != NULL) root = root->left;
+            else root = root->right;
         }
-        else
-        {
-            remove_zero(root, element, prev);
+        else{
+            root = NULL; delete root;
+            std::cout << "The tree has been deleted\n.Exiting the program.\n";
+            exit(0);
         }
-
-        return;
     }
 }

@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
     }
     std::string tree_type = std::string(argv[2]);
     std::cin >> nodes;
-    std::cout << "nodes> " << nodes << "\n";
+    std::cout << "\nnodes> " << nodes << "\n";
     for(int i = 0; i < nodes; i++) {std::cin >> p; data.push_back(p);} //przy herestring dac w " "
     std::cout << "insert> ";
     for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";

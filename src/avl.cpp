@@ -98,5 +98,5 @@ void avl(tree *&root, std::vector<int> data)
           wstawianie(root, data, 0, median_index - 1);
           wstawianie(root, data, median_index + 1, data.size()-1);
      }
-     std::cout << "AVL tree has been built." << "\n\n";
+     std::cout << "AVL tree has been built." << "\n";
 }
