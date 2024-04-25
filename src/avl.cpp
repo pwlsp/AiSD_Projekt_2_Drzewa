@@ -80,10 +80,10 @@ void avl(tree *&root, std::vector<int> data)
      tree *copy = new tree;
 
      std::cout << std::endl
-               << "Posortowane dane: ";
+               << "Sorted input data: ";
      for (int i = 0; i < data.size(); i++)
      {
-          std::cout << data[i];
+          std::cout << data[i] << " ";
      }
 
      std::cout << std::endl;
@@ -98,7 +98,5 @@ void avl(tree *&root, std::vector<int> data)
           wstawianie(root, data, 0, median_index - 1);
           wstawianie(root, data, median_index + 1, data.size()-1);
      }
-
-     print_tree(root, "pre");
-     std::cout << std::endl;
+     std::cout << "AVL tree has been built." << "\n\n";
 }
