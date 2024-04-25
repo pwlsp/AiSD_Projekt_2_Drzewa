@@ -27,11 +27,16 @@ void actions(tree *&root, int nodes){
         }
         else if(action == "Remove"){
             int element;
-            std::cout << "delete> ";
             std::cin >> element;
+            std::cout << "remove> " << element << std::endl;
             remove_element(root, element, root);
+            // std::cout << root->value << std::endl;
+            print_tree(root, "pre");
         }
         else if(action == "Delete"){
+            if(root->left == 0 && root->right == 0){
+                delete root;
+            }
             delete_tree(root, root);
             std::cout << "The tree has been deleted.\nExiting the program.\n";
             break;

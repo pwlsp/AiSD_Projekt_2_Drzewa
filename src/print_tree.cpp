@@ -6,7 +6,9 @@
 void pre_order(tree *&root){
     std::cout << root->value << " ";
     if(root->left != NULL) pre_order(root->left);
+    // if(root->left == NULL) std::cout << " NULL ";
     if(root->right != NULL) pre_order(root->right);
+    // if(root->right == NULL) std::cout << " NULL ";
 }
 
 void in_order(tree *&root){
