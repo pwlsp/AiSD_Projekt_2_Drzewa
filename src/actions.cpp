@@ -26,7 +26,10 @@ void actions(tree *&root, int nodes){
             min_max(root);
         }
         else if(action == "Remove"){
-            remove_element(root);
+            int element;
+            std::cout << "delete> ";
+            std::cin >> element;
+            remove_element(root, element, root);
         }
         else if(action == "Delete"){
             delete_tree(root, root);
