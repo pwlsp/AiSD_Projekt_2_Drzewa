@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
     if(tree_type == "BST") bst(root, data);
     
     actions(root, nodes);
-    root = NULL;
+    
     delete root;
     return 0;  
 }

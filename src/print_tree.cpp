@@ -22,28 +22,33 @@ void post_order(tree *&root){
 }
 
 void print_tree(tree *&root, std::string method){ 
-    if(method == "all"){
-        std::cout << "Pre-order: ";
-        pre_order(root);
-        std::cout << "\nIn-order: ";
-        in_order(root);
-        std::cout << "\nPost-order: ";
-        post_order(root);
-        std::cout << "\n";
+    if(root){
+        if(method == "all"){
+            std::cout << "Pre-order: ";
+            pre_order(root);
+            std::cout << "\nIn-order: ";
+            in_order(root);
+            std::cout << "\nPost-order: ";
+            post_order(root);
+            std::cout << "\n";
+        }
+        else if(method == "pre"){
+            std::cout << "Pre-order: ";
+            pre_order(root);
+            std::cout << "\n";
+        }
+        else if(method == "in"){
+            std::cout << "In-order: ";
+            in_order(root);
+            std::cout << "\n";
+        }
+        else if(method == "post"){
+            std::cout << "Post-order: ";
+            post_order(root);
+            std::cout << "\n";
+        }
     }
-    else if(method == "pre"){
-        std::cout << "Pre-order: ";
-        pre_order(root);
-        std::cout << "\n";
-    }
-    else if(method == "in"){
-        std::cout << "In-order: ";
-        in_order(root);
-        std::cout << "\n";
-    }
-    else if(method == "post"){
-        std::cout << "Post-order: ";
-        post_order(root);
-        std::cout << "\n";
+    else{
+        std::cout << "The tree does not exist. (It has been deleted).\n";
     }
 }

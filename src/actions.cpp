@@ -29,7 +29,9 @@ void actions(tree *&root, int nodes){
             remove_element(root);
         }
         else if(action == "Delete"){
-            delete_tree(root);
+            delete_tree(root, root);
+            std::cout << "The tree has been deleted.\nExiting the program.\n";
+            break;
         }
         else if(action == "Rebalance"){
             rebalance_tree(root, nodes);
