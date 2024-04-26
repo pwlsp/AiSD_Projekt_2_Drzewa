@@ -14,7 +14,7 @@
 
 void actions(tree *&root, int nodes){
     std::cout << "\nActions\n";
-    std::string message = "Help\t\tShow this message\nPrint\t\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\t\tShow min and max element\nRemove\t\tRemove elements of the tree\nDelete\t\tDelete whole tree\nExport\t\tExport the tree to tickzpicture\nRebalance\tRebalance the tree\nExit\t\tExits the program (same as ctrl+D)\n";
+    std::string message = "Help\t\tShow this message\nPrint\t\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\t\tShow min and max element\nRemove\t\tRemove elements of the tree\nDelete\t\tDelete the whole tree\nRebalance\tRebalance the tree\nExit\t\tExit the program (same as ctrl+D)\n";
     std::string action;
     while(std::cin){
         std::cin >> action;
@@ -52,6 +52,7 @@ void actions(tree *&root, int nodes){
         else if(action == "Rebalance"){
             rebalance_tree(root, nodes);
         }
+        //else if(action == "Export") export();
         else if(action == "Exit"){
             std::cout << "Exiting the program...\n";
             break;
