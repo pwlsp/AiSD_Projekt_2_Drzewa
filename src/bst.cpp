@@ -54,5 +54,5 @@ void bst(tree *&root, std::vector<int> data)
             }
         }
     }
-    std::cout << "BST tree has been built." << "\n";
+    std::cout << "BST tree has been built successfully." << "\n";
 }

@@ -16,12 +16,6 @@ int main(int argc, char *argv[]){
     root = new tree;
     int nodes, p; std::string pom;
     std::vector <int> data;
-    //dodawanie elementu
-    // tree * node;
-    // node = new tree;
-    // node->left = NULL;
-    // node->value = 2137;
-    // root->right = node;
 
     if(argc <= 2){
         std::cout << "No arguments given\n";

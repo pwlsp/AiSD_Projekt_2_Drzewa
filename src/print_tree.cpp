@@ -6,9 +6,7 @@
 void pre_order(tree *&root){
     std::cout << root->value << " ";
     if(root->left != NULL) pre_order(root->left);
-    // if(root->left == NULL) std::cout << " NULL ";
     if(root->right != NULL) pre_order(root->right);
-    // if(root->right == NULL) std::cout << " NULL ";
 }
 
 void in_order(tree *&root){
@@ -49,8 +47,9 @@ void print_tree(tree *&root, std::string method){
             post_order(root);
             std::cout << "\n";
         }
+        std::cout << "The tree has been printed successfully.\n";
     }
     else{
-        std::cout << "The tree does not exist. (It has been deleted).\n";
+        std::cout << "The tree does not exist.\n";
     }
 }

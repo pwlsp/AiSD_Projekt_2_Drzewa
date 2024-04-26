@@ -53,7 +53,6 @@ void two_children(tree *&child){
     else{
         one_child(P, replace);
     }
-    //std::cout << "replace: " << replace->value << std::endl;
 }  
 
 void remove_element(tree *&root, int element)
@@ -92,7 +91,7 @@ void remove_element(tree *&root, int element)
         }
         else{
             root = NULL; delete root;
-            std::cout << "The tree has been deleted\n.Exiting the program.\n";
+            std::cout << "The tree has been deleted.\n\nExiting the program...\n";
             exit(0);
         }
     }

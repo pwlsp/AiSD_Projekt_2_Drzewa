@@ -23,12 +23,12 @@ void wstawianie(tree *&root, std::vector<int> data, int a, int z)
      {
           if (data[median_index] <= copy->value)
           {
-               if (copy->left == 0)
+               if (copy->left == NULL)
                {
                     tree *tmp = new tree;
                     tmp->value = data[median_index];
-                    tmp->left = 0;
-                    tmp->right = 0;
+                    tmp->left = NULL;
+                    tmp->right = NULL;
                     copy->left = tmp;
                     nowy = copy->left;
                     break;
@@ -40,12 +40,12 @@ void wstawianie(tree *&root, std::vector<int> data, int a, int z)
           }
           else
           {
-               if (copy->right == 0)
+               if (copy->right == NULL)
                {
                     tree *tmp = new tree;
                     tmp->value = data[median_index];
-                    tmp->left = 0;
-                    tmp->right = 0;
+                    tmp->left = NULL;
+                    tmp->right = NULL;
                     copy->right = tmp;
                     nowy = copy->right;
                     break;
@@ -74,13 +74,12 @@ void avl(tree *&root, std::vector<int> data)
      std::sort(data.begin(), data.end());
      int median_index = (data.size() - 1) / 2;
      root->value = data[median_index];
-     root->left = 0;
-     root->right = 0;
+     root->left = NULL;
+     root->right = NULL;
 
      tree *copy = new tree;
 
-     std::cout << std::endl
-               << "Sorted input data: ";
+     std::cout << std::endl << "Sorted input data: ";
      for (int i = 0; i < data.size(); i++)
      {
           std::cout << data[i] << " ";
@@ -98,5 +97,5 @@ void avl(tree *&root, std::vector<int> data)
           wstawianie(root, data, 0, median_index - 1);
           wstawianie(root, data, median_index + 1, data.size()-1);
      }
-     std::cout << "AVL tree has been built." << "\n";
+     std::cout << "AVL tree has been built successfully." << "\n";
 }

@@ -39,24 +39,25 @@ void actions(tree *&root, int nodes){
                 std::cout << element << " ";
                 remove_element(root, element);
             }
-            std::cout << "\n";
-            // std::cout << root->value << std::endl;
-            //print_tree(root, "pre");
+            std::cout << "\nGiven elements have been removed successfully.\n";
         }
         else if(action == "Delete"){
             if(root->left == 0 && root->right == 0){
                 delete root;
             }
             delete_tree(root, root);
-            std::cout << "The tree has been deleted.\nExiting the program.\n";
+            std::cout << "The tree has been deleted successfully.\nExiting the program...\n";
             break;
         }
         else if(action == "Rebalance"){
             rebalance_tree(root, nodes);
         }
-        else if(action == "Exit") break;
+        else if(action == "Exit"){
+            std::cout << "Exiting the program...\n";
+            break;
+        }
         else if(action == ""){
-            std::cout << "\nEnd of file\n";
+            std::cout << "\nEnd of file\nExiting the program...\n";
             break;
         }
         else std::cout << "\nWrong command\n";
