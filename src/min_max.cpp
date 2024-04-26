@@ -11,12 +11,10 @@ int min_element(tree *&root){
     tree *L = root;
     if(L->left == NULL) return L->value;
     while(L->left != NULL){
-        std::cout << L->value << " ";
         L = L->left;
     }
     mini = L->value;
-    L = NULL; delete L;
-    std::cout << "wynik ";
+    //L = NULL; delete L;
     return mini;
 }
 
@@ -28,7 +26,7 @@ int max_element(tree *&root){
         R = R->right;
     }
     maxi = R->value;
-    R = NULL; delete R;
+    //R = NULL; delete R;
     return maxi;
 }
 

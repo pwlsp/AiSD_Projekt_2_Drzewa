@@ -2,6 +2,8 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <ios>
+#include <limits>
 
 #include "../include/min_max.h"
 #include "../include/print_tree.h"
@@ -29,7 +31,7 @@ void actions(tree *&root, int nodes){
         else if(action == "Remove"){
             std::string line;
             int element;
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::getline(std::cin, line);
             std::stringstream elements(line);
             std::cout << "remove> ";
