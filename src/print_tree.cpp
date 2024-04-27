@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <fstream>
 
 #include "../include/struct_tree.h"
 
@@ -21,13 +23,16 @@ void post_order(tree *&root){
     std::cout << root->value << " ";
 }
 
-void print_tree(tree *&root, std::string method){ 
+void print_tree(tree *&root, std::string method, std::string tree_type){ 
+    std::chrono::time_point<std::chrono::high_resolution_clock> start, stop;
     if(root){
         if(method == "all"){
             std::cout << "Pre-order: ";
             pre_order(root);
             std::cout << "\nIn-order: ";
+            start = std::chrono::high_resolution_clock::now();
             in_order(root);
+            stop = std::chrono::high_resolution_clock::now();
             std::cout << "\nPost-order: ";
             post_order(root);
             std::cout << "\n";
@@ -52,4 +57,10 @@ void print_tree(tree *&root, std::string method){
     else{
         std::cout << "The tree does not exist.\n";
     }
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::string file_name = "../results/" + tree_type + "_print_in_order.txt";
+    std::fstream file;
+    file.open(file_name, std::ios::app); //dopisywanie
+    file << duration.count() << "\n";
+    file.close();
 }

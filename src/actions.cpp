@@ -4,6 +4,8 @@
 #include <sstream>
 #include <ios>
 #include <limits>
+#include <fstream>
+#include <chrono>
 
 #include "../include/min_max.h"
 #include "../include/print_tree.h"
@@ -12,7 +14,7 @@
 #include "../include/rebalance_tree.h"
 #include "../include/struct_tree.h"
 
-void actions(tree *&root, int nodes){
+void actions(tree *&root, int nodes, std::string tree_type){
     std::cout << "\nActions\n";
     std::string message = "Help\t\tShow this message\nPrint\t\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\t\tShow min and max element\nRemove\t\tRemove elements of the tree\nDelete\t\tDelete the whole tree\nRebalance\tRebalance the tree\nExit\t\tExit the program (same as ctrl+D)\n";
     std::string action;
@@ -23,10 +25,20 @@ void actions(tree *&root, int nodes){
            std::cout << message;
         }
         else if(action == "Print"){
-            print_tree(root,"all");
+            std::string file_name = "../results/" + tree_type + "_print_in_order.txt";
+            std::fstream file;
+            file.open(file_name, std::ios::out | std::ios::app);
+            file << nodes << " ";
+            print_tree(root, "all", tree_type);
+            file.close();
         }
         else if(action == "MinMax"){
-            min_max(root);
+            std::string file_name = "../results/" + tree_type + "_min_max.txt";
+            std::fstream file;
+            file.open(file_name, std::ios::out | std::ios::app);
+            file << nodes << " ";
+            file.close();
+            min_max(root, tree_type);
         }
         else if(action == "Remove"){
             std::string line;
@@ -50,7 +62,12 @@ void actions(tree *&root, int nodes){
             break;
         }
         else if(action == "Rebalance"){
-            rebalance_tree(root, nodes);
+            std::string file_name = "../results/" + tree_type + "_rebalance.txt";
+            std::fstream file;
+            file.open(file_name, std::ios::out | std::ios::app);
+            file << nodes << " ";
+            file.close();
+            rebalance_tree(root, nodes, tree_type);
         }
         //else if(action == "Export") export();
         else if(action == "Exit"){

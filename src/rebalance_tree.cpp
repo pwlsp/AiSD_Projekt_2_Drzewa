@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <fstream>
+#include <chrono>
 
 #include "../include/struct_tree.h"
 #include "../include/print_tree.h"
@@ -45,10 +47,19 @@ void balansowanie(tree *&root, int N){
     }
 }
 
-void rebalance_tree(tree *&root, int nodes){
+void rebalance_tree(tree *&root, int nodes, std::string tree_type){
+    std::chrono::time_point<std::chrono::high_resolution_clock> start, stop;
+    start = std::chrono::high_resolution_clock::now();
     winorosl(root);
     balansowanie(root, nodes);
+    stop = std::chrono::high_resolution_clock::now();
     std::cout << "The tree has been rebalanced successfully.\n";
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::string file_name = "../results/" + tree_type + "_rebalance.txt";
+    std::fstream file;
+    file.open(file_name, std::ios::out); //dopisywanie
+    file << nodes << " " << duration.count() << "\n";
+    file.close();
     //print_tree(root, "pre");
 
 }

@@ -4,7 +4,8 @@
 #include <vector>
 #include <ios>
 #include <limits>
-#include <sstream>
+#include <chrono>
+#include <fstream>
 
 #include "../include/avl.h"
 #include "../include/bst.h"
@@ -33,10 +34,27 @@ int main(int argc, char *argv[]){
     for(int i = 0; i < nodes; i++) std::cout << data[i] << " ";
     std::cout << "\n";
 
-    if(tree_type == "AVL") avl(root, data);
-    if(tree_type == "BST") bst(root, data);
-    
-    actions(root, nodes);
+    std::string file_name = "../results/" + tree_type + "_time.txt";
+    std::fstream file;
+    std::chrono::time_point<std::chrono::high_resolution_clock> start, stop;
+    file.open(file_name, std::ios::out | std::ios::app);
+    if(tree_type == "AVL"){
+        start = std::chrono::high_resolution_clock::now();
+        avl(root, data);
+        stop = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        file << nodes << " " << duration.count() << "\n";
+    }
+    if(tree_type == "BST"){
+        start = std::chrono::high_resolution_clock::now();
+        bst(root, data);
+        stop = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        file << nodes << " " << duration.count() << "\n";
+    }
+    file.close();
+
+    actions(root, nodes, tree_type);
 
     delete root;
     return 0;

@@ -3,6 +3,8 @@
 #include <string>
 #include <iomanip>
 #include <algorithm>
+#include <chrono>
+#include <fstream>
 
 #include "../include/struct_tree.h"
 
@@ -14,7 +16,6 @@ int min_element(tree *&root){
         L = L->left;
     }
     mini = L->value;
-    //L = NULL; delete L;
     return mini;
 }
 
@@ -26,11 +27,19 @@ int max_element(tree *&root){
         R = R->right;
     }
     maxi = R->value;
-    //R = NULL; delete R;
     return maxi;
 }
 
-void min_max(tree *&root){
+void min_max(tree *&root, std::string tree_type){
+    std::chrono::time_point<std::chrono::high_resolution_clock> start, stop;
+    start = std::chrono::high_resolution_clock::now();
     std::cout << "Min: " << min_element(root) << "\n";
     std::cout << "Max: " << max_element(root) << "\n";
+    stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::string file_name = "../results/" + tree_type + "_min_max.txt";
+    std::fstream file;
+    file.open(file_name, std::ios::app); //dopisywanie
+    file << duration.count() << "\n";
+    file.close();
 }
