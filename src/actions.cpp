@@ -29,8 +29,8 @@ void actions(tree *&root, int nodes, std::string tree_type){
             std::fstream file;
             file.open(file_name, std::ios::out | std::ios::app);
             file << nodes << " ";
-            print_tree(root, "all", tree_type);
             file.close();
+            print_tree(root, "all", tree_type);
         }
         else if(action == "MinMax"){
             std::string file_name = "../results/" + tree_type + "_min_max.txt";
@@ -61,14 +61,7 @@ void actions(tree *&root, int nodes, std::string tree_type){
             std::cout << "The tree has been deleted successfully.\nExiting the program...\n";
             break;
         }
-        else if(action == "Rebalance"){
-            std::string file_name = "../results/" + tree_type + "_rebalance.txt";
-            std::fstream file;
-            file.open(file_name, std::ios::out | std::ios::app);
-            file << nodes << " ";
-            file.close();
-            rebalance_tree(root, nodes, tree_type);
-        }
+        else if(action == "Rebalance") rebalance_tree(root, nodes, tree_type);
         //else if(action == "Export") export();
         else if(action == "Exit"){
             std::cout << "Exiting the program...\n";

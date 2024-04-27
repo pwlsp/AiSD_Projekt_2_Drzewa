@@ -57,7 +57,7 @@ void rebalance_tree(tree *&root, int nodes, std::string tree_type){
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     std::string file_name = "../results/" + tree_type + "_rebalance.txt";
     std::fstream file;
-    file.open(file_name, std::ios::out); //dopisywanie
+    file.open(file_name, std::ios::app); //dopisywanie
     file << nodes << " " << duration.count() << "\n";
     file.close();
     //print_tree(root, "pre");
