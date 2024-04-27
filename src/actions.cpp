@@ -13,10 +13,11 @@
 #include "../include/delete_tree.h"
 #include "../include/rebalance_tree.h"
 #include "../include/struct_tree.h"
+#include "../include/tikz.h"
 
 void actions(tree *&root, int nodes, std::string tree_type){
     std::cout << "\nActions\n";
-    std::string message = "Help\t\tShow this message\nPrint\t\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\t\tShow min and max element\nRemove\t\tRemove elements of the tree\nDelete\t\tDelete the whole tree\nRebalance\tRebalance the tree\nExit\t\tExit the program (same as ctrl+D)\n";
+    std::string message = "Help\t\tShow this message\nPrint\t\tPrint the tree using In-order, Pre-order, Post-order\nMinMax\t\tShow min and max element\nRemove\t\tRemove elements of the tree\nDelete\t\tDelete the whole tree\nRebalance\tRebalance the tree\nExport\t\tExport the tree to TikZ LaTeX code.\nExit\t\tExit the program (same as ctrl+D)\n";
     std::string action;
     while(std::cin){
         std::cin >> action;
@@ -66,6 +67,9 @@ void actions(tree *&root, int nodes, std::string tree_type){
         else if(action == "Exit"){
             std::cout << "Exiting the program...\n";
             break;
+        }
+        else if(action == "Export"){
+            std::cout << std::endl << tikz(root) << std::endl << std::endl;
         }
         else if(action == ""){
             std::cout << "\nEnd of file\nExiting the program...\n";
